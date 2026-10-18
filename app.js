@@ -4,6 +4,7 @@ import {
   doc, getDoc, getDocs, updateDoc, collection, query, where, orderBy, limitToLast,
   onSnapshot, writeBatch, serverTimestamp, increment
 } from './firebase.js';
+import { firebaseConfig } from './firebase-config.js';
 import {
   COLORS, latin, esc, hm, dayLabel, listTime, seenLabel, initial, normEmail, validEmail, pad
 } from './util.js';
@@ -132,7 +133,11 @@ $('#s3').addEventListener('submit', async e => {
     startApp();
   } catch (err) {
     console.error(err);
-    $('#e3').textContent = 'تعذر حفظ الملف الشخصي. تأكد من نشر قواعد Firestore ثم حاول مرة ثانية.';
+    const code = (err && err.code) || (err && err.message) || '';
+    const hint = /permission-denied/.test(code) ? 'القواعد ترفض الكتابة. انشر firestore.rules في نفس المشروع ' + firebaseConfig.projectId + '.'
+      : /not-found|failed-precondition|unavailable/.test(code) ? 'قاعدة Firestore غير منشأة في هذا المشروع أو لا يمكن الوصول إليها. أنشئها من Firestore Database ثم Create database.'
+      : 'تعذر حفظ الملف الشخصي.';
+    $('#e3').textContent = hint + ' (' + code + ')';
   } finally { busy(btn, false); }
 });
 
