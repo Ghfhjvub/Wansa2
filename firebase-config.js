@@ -1,11 +1,11 @@
-// إعدادات مشروع Firebase الخاص بك (wansa-a36bc).
+// إعدادات مشروع Firebase الخاص بك (wansa-ed02f).
 // هذه القيم ليست أسراراً، فالحماية تأتي من قواعد Firestore (firestore.rules).
 export const firebaseConfig = {
-  apiKey: "AIzaSyBse23fpeaMfRGCukG-EdKXcs0CfdkW2YU",
-  authDomain: "wansa-a36bc.firebaseapp.com",
-  projectId: "wansa-a36bc",
-  storageBucket: "wansa-a36bc.firebasestorage.app",
-  messagingSenderId: "350120877708",
-  appId: "1:350120877708:web:36d31a68cf56da924d65a9",
-  measurementId: "G-GQ4KL773FT"
+  apiKey: "AIzaSyB0LlHID6MiXU8qOGkFY6PSfYkxago03y8",
+  authDomain: "wansa-ed02f.firebaseapp.com",
+  projectId: "wansa-ed02f",
+  storageBucket: "wansa-ed02f.firebasestorage.app",
+  messagingSenderId: "1093182133152",
+  appId: "1:1093182133152:web:ead9275f51aa6b75b94ac5",
+  measurementId: "G-FTF74QE3D6"
 };
